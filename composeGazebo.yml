@@ -1,0 +1,21 @@
+services:
+  ros2_humble:
+    image: proyectos_integrados:jazzy_y_gazebosim
+    volumes:
+      - ros2_ws:/root/ros2_ws
+      - simulaciones:/root/simulaciones
+    container_name: contenedor
+    ports:
+      - "6080:6080"
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    stdin_open: true
+    tty: true
+    
+
+
+volumes:
+  ros2_ws:
+    external: true
+  simulaciones:
